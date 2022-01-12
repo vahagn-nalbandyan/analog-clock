@@ -1,0 +1,203 @@
+.clock {
+    width: 500px;
+    height: 500px;
+    border: 10px solid rgba($Alto, 1);
+    margin: 50px auto;
+    border-radius: 100%;
+    position: relative;
+    padding: 40px;
+    background: linear-gradient(360deg, rgba($Cerulean, .2) , rgba($Black, .75));
+    box-shadow: 0 0 50px 20px rgba($White, 0.3);
+    .logo-holder {
+        position: absolute;
+        width: fit-content;
+        top: 80px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        svg {
+            fill: rgba($Cerulean, 1);
+            filter: drop-shadow(0px 20px 10px rgba($Cerulean, .5));
+            z-index: 0;
+            width: 150px;
+            display: block;
+            height: auto;
+            opacity: 90%;
+        }
+    }
+    .msec-cont {
+        display: none;
+        width: 130px;
+        height: 130px;
+        border-radius: 100%;
+        position: absolute;
+        left: 50%;
+        top: calc(50% - 65px);
+        transform: translateX(-50%);
+        opacity: 70%;
+        box-shadow: 0 0 5px 3px $Cerulean;
+        .arrow-msec {
+            width: 2px;
+            height: 50%;
+            position: absolute;
+            left: calc(50% - 2px);
+            transform-origin: bottom center;
+            box-shadow: 0 0 0 1px rgba($Cerulean, 1);
+        }
+    }
+    &-holder {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .watch {
+            &-point {
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                background: $Alto;
+                left: 49%;
+                top: -20px;
+                border-radius: 100%;
+                transform-origin: 3px 220px;
+                &-1 {
+                    transform: rotate(30deg);
+                }
+                &-2 {
+                    transform: rotate(60deg);
+                }
+                &-3 {
+                    transform: rotate(90deg);
+                }
+                &-4 {
+                    transform: rotate(120deg);
+                }
+                &-5 {
+                    transform: rotate(150deg);
+                }
+                &-6 {
+                    transform: rotate(180deg);
+                }
+                &-7 {
+                    transform: rotate(210deg);
+                }
+                &-8 {
+                    transform: rotate(240deg);
+                }
+                &-9 {
+                    transform: rotate(270deg);
+                }
+                &-10 {
+                    transform: rotate(300deg);
+                }
+                &-11 {
+                    transform: rotate(330deg);
+                }
+                &-12 {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+        .center-circle {
+            background: $Alto;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            position: absolute;
+            top: calc(50% - 15px);
+            left: calc(50% - 15px);
+            z-index: 6;
+            box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.1) inset;
+        }
+        .arrow {
+            width: 6px;
+            height: 50%;
+            background: $Alto;
+            position: absolute;
+            z-index: 999;
+            transform-origin: bottom center;
+            border-radius: 20%;
+            box-shadow: 3px 3px 4px 2px rgba(0, 0, 0, 0.3);
+            &-hours {
+                width: 10px;
+                z-index: 3;
+                left: calc(50% - 5px);
+            }
+            &-minutes {
+                z-index: 4;
+                left: calc(50% - 3px);
+            }
+            &-seconds {
+                width: 4px;
+                background-color: rgba($Cerulean, 1);
+                z-index: 5;
+                left: calc(50% - 2px);
+            }
+        }
+    }
+    .digital {
+        &-cont {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15%;
+            width: 220px;
+            height: 40px;
+            border: 2px solid $Alto;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .9;
+            .digits-cont {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                .colon {
+                    margin: 0 5px;
+                    font-family: 'Orbitron', sans-serif;
+                    font-size: 25px;
+                    color: $Alto;
+                }
+            }
+        }
+        &-hours,
+        &-minutes,
+        &-seconds {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 25px;
+            letter-spacing: 4px;
+            margin-right: -4px;
+            color: $Alto;
+            min-width: 60px;
+        }
+    }
+    .weekday,
+    .month {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 14px;
+        letter-spacing: 4px;
+        margin-right: -4px;
+        color: $Alto;
+        min-width: 60px;
+        font-weight: 600;
+    }
+    .count {
+        position: absolute;
+        transform: translateX(-50%);
+        bottom: calc(50% - 15px);
+        width: 60px;
+        height: 30px;
+        border: 2px solid $Alto;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: .9;
+        &-month {
+            left: 15%;
+        }
+        &-day {
+            left: 85%;
+        }
+    }
+}

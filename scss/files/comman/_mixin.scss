@@ -1,0 +1,117 @@
+@mixin opacity($value) {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$value)";
+
+    /* IE 5-7 */
+    filter: alpha(opacity=$value);
+
+    /* Netscape */
+    -moz-opacity: $value;
+
+    /* Safari 1.x */
+    -khtml-opacity: $value;
+
+    /* Good browsers */
+    opacity: $value;
+}
+
+///////////////// Calculate % Width ///////////////
+@function calc-percent($target, $container) {
+    @return ($target / $container) * 100%;
+}
+
+@function cp($target, $container) {
+    @return calc-percent($target, $container);
+}
+
+////////////////////////////////////////////////////
+
+@mixin bgrgba($color , $alpha, $important: '') {
+    background-color: rgba($color, $alpha) $important;
+}
+
+////////////////////////////////////////////////////
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
+    @if $inset {
+        box-shadow: inset $top $left $blur $spread $color !important;
+        -webkit-box-shadow: inset $top $left $blur $spread $color !important;
+        -moz-box-shadow: inset $top $left $blur $spread $color !important;
+    } @else {
+        box-shadow: $top $left $blur $spread $color;
+        -webkit-box-shadow: $top $left $blur $spread $color;
+        -moz-box-shadow: $top $left $blur $spread $color;
+    }
+}
+
+@mixin transition($property, $duration, $easing: ease-in-out) {
+    transition: $property $duration $easing;
+    -webkit-transition: $property $duration $easing;
+    -moz-transition: $property $duration $easing;
+}
+
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+}
+
+
+@mixin border($align , $size , $color) {
+    @if $align == bottom {
+        border-bottom: $size solid $color;
+    }
+    @if $align == top {
+        border-top: $size solid $color;
+    }
+    @if $align == left {
+        border-left: $size solid $color;
+    }
+    @if $align == right {
+        border-right: $size solid $color;
+    }
+    @if $align == border {
+        border: $size solid $color;
+    }
+}
+
+@mixin LS($num) {
+    letter-spacing: ($num / 1000) + em;
+}
+
+@mixin appearance() {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+//responsive mixin
+@mixin responsive($device) {
+    @if $device == mobile {
+        @media only screen and (max-width: 520px) {
+            @content;
+        }
+    }
+    @if $device == tablet {
+        @media only screen and (max-width: 768px) {
+            @content;
+        }
+    }
+    @if $device == tablet-portrait {
+        @media only screen and (max-width: 1024px) {
+            @content;
+        }
+    }
+    @if $device == medium-screen {
+        @media only screen and (max-width: 1366px) {
+            @content;
+        }
+    }
+    @if $device == big-screen {
+        @media only screen and (max-width: 1920px) {
+            @content;
+        }
+    }
+}
